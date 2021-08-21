@@ -198,6 +198,38 @@ BigInt::BigInt(const std::string& stringNum)
 	}
 }
 
+BigInt& BigInt::operator+(const BigInt& bigInt)
+{
+	uint64_t temp = 0, carry = 0;
+	for (int i = _64_MULTIPLE - 1; i >= 0; i--) {
+		temp = bits[i] + bigInt.bits[i] + carry;
+		if (bits[i] > temp) { // 오버플로우가 났다 -> 캐리 발생
+			carry = 1;
+		}
+		else {
+			carry = 0;
+		}
+		bits[i] = temp;
+	}
+	return *this;
+}
+
+BigInt& BigInt::operator-(const BigInt& bigInt)
+{
+	uint64_t temp = 0, carry = 0;
+	for (int i = _64_MULTIPLE - 1; i >= 0; i--) {
+		temp = bits[i] - bigInt.bits[i] - carry;
+		if (bits[i] < temp) { // 오버플로우가 났다 -> 캐리 발생
+			carry = 1;
+		}
+		else {
+			carry = 0;
+		}
+		bits[i] = temp;
+	}
+	return *this;
+}
+
 void BigInt::printString()
 {
 	string stringNum("0");

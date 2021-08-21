@@ -6,16 +6,14 @@
 int main()
 {
     using namespace std;
-    BigInt a("-123");
-    a.printBinary();
-    cout << endl;
-    a.printString();
+    BigInt a("123");
+    BigInt b("124");
+    BigInt c;
 
+    c = a - b;
+    c.printBinary();
     cout << endl;
+    c.printString();
 
-    uBigInt b("-123");
-    b.printBinary();
-    cout << endl;
-    b.printString();
     return 0;
 }

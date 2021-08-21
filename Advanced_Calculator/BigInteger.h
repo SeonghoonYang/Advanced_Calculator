@@ -3,7 +3,7 @@
 #include <string>
 
 typedef unsigned char BYTE;
-#define _64_MULTIPLE 4
+#define _64_MULTIPLE 2
 
 class uBigInt
 {
@@ -14,7 +14,6 @@ private:
 public:
 	uBigInt();
 	uBigInt(const std::string& stringNum);
-	uBigInt(const uBigInt& ubigint);
 
 	void printString();
 	void printBinary();
@@ -29,6 +28,9 @@ private:
 public:
 	BigInt();
 	BigInt(const std::string& stringNum);
+
+	BigInt& operator + (const BigInt& bigInt);
+	BigInt& operator - (const BigInt& bigInt);
 
 	void printString();
 	void printBinary();
