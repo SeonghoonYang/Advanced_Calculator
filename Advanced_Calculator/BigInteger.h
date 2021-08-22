@@ -2,27 +2,12 @@
 
 #include <string>
 
-typedef unsigned char BYTE;
-#define _64_MULTIPLE 2
-
-class uBigInt
-{
-private:
-	uint64_t bits[_64_MULTIPLE];
-	bool isCorrectFormat(const std::string& stringNum);
-
-public:
-	uBigInt();
-	uBigInt(const std::string& stringNum);
-
-	void printString();
-	void printBinary();
-};
+#define _32_MULTIPLE 4
 
 class BigInt
 {
 private:
-	uint64_t bits[_64_MULTIPLE];
+	uint32_t bits[_32_MULTIPLE];
 	bool isCorrectFormat(const std::string& stringNum);
 
 public:
